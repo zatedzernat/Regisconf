@@ -18,7 +18,7 @@ import jpa.model.controller.exceptions.NonexistentEntityException;
 
 /**
  *
- * @author GT62VR
+ * @author BEW ACER
  */
 public class Member1JpaController implements Serializable {
 

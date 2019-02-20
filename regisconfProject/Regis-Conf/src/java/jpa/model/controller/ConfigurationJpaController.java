@@ -13,16 +13,16 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import jpa.model.Registration;
+import jpa.model.Configuration;
 import jpa.model.controller.exceptions.NonexistentEntityException;
 
 /**
  *
  * @author BEW ACER
  */
-public class RegistrationJpaController implements Serializable {
+public class ConfigurationJpaController implements Serializable {
 
-    public RegistrationJpaController(EntityManagerFactory emf) {
+    public ConfigurationJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,12 +31,12 @@ public class RegistrationJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Registration registration) {
+    public void create(Configuration configuration) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(registration);
+            em.persist(configuration);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -45,19 +45,19 @@ public class RegistrationJpaController implements Serializable {
         }
     }
 
-    public void edit(Registration registration) throws NonexistentEntityException, Exception {
+    public void edit(Configuration configuration) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            registration = em.merge(registration);
+            configuration = em.merge(configuration);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = registration.getRegId();
-                if (findRegistration(id) == null) {
-                    throw new NonexistentEntityException("The registration with id " + id + " no longer exists.");
+                Integer id = configuration.getId();
+                if (findConfiguration(id) == null) {
+                    throw new NonexistentEntityException("The configuration with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -73,14 +73,14 @@ public class RegistrationJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Registration registration;
+            Configuration configuration;
             try {
-                registration = em.getReference(Registration.class, id);
-                registration.getRegId();
+                configuration = em.getReference(Configuration.class, id);
+                configuration.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The registration with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The configuration with id " + id + " no longer exists.", enfe);
             }
-            em.remove(registration);
+            em.remove(configuration);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -89,19 +89,19 @@ public class RegistrationJpaController implements Serializable {
         }
     }
 
-    public List<Registration> findRegistrationEntities() {
-        return findRegistrationEntities(true, -1, -1);
+    public List<Configuration> findConfigurationEntities() {
+        return findConfigurationEntities(true, -1, -1);
     }
 
-    public List<Registration> findRegistrationEntities(int maxResults, int firstResult) {
-        return findRegistrationEntities(false, maxResults, firstResult);
+    public List<Configuration> findConfigurationEntities(int maxResults, int firstResult) {
+        return findConfigurationEntities(false, maxResults, firstResult);
     }
 
-    private List<Registration> findRegistrationEntities(boolean all, int maxResults, int firstResult) {
+    private List<Configuration> findConfigurationEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Registration.class));
+            cq.select(cq.from(Configuration.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -113,20 +113,20 @@ public class RegistrationJpaController implements Serializable {
         }
     }
 
-    public Registration findRegistration(Integer id) {
+    public Configuration findConfiguration(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Registration.class, id);
+            return em.find(Configuration.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getRegistrationCount() {
+    public int getConfigurationCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Registration> rt = cq.from(Registration.class);
+            Root<Configuration> rt = cq.from(Configuration.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

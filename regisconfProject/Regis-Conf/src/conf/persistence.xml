@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>jpa.model.Member1</class>
     <class>jpa.model.Registration</class>
+    <class>jpa.model.Configuration</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://idb01.sit.kmutt.ac.th:3306/regisconfdb?zeroDateTimeBehavior=convertToNull"/>
