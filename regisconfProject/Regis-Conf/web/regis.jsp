@@ -21,7 +21,7 @@
             body {
                 padding-top: 20px;
                 padding-bottom: 20px;
-                background-color: #819FF7;
+                background-color: #58ACFA;
             }
 
             /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -98,92 +98,106 @@
                 }
             }
         </style>
+        <!--        <script>
+                    function checkform() {
+                        if (document.getElementById("title").value == "") {
+                            document.getElementById("title").focus();
+                            Swal.fire('Please Enter Title');
+                            return false;
+                        }
+                        if (document.getElementById("fname").value == "") {
+                            document.getElementById("fname").focus();
+                            Swal.fire('Please Enter First Name');
+                            return false;
+                        }
+                        if (document.getElementById("lname").value == "") {
+                            document.getElementById("lname").focus();
+                            Swal.fire('Please Enter Last Name');
+                            return false;
+                        }
+                        if (document.getElementById("company").value == "") {
+                            document.getElementById("company").focus();
+                            Swal.fire('Please Enter Affiliation');
+                            return false;
+                        }
+                        if (document.getElementById("address").value == "") {
+                            document.getElementById("address").focus();
+                            Swal.fire('Please Enter Address');
+                            return false;
+                        }
+                        if (document.getElementById("city").value == "") {
+                            document.getElementById("city").focus();
+                            Swal.fire('Please Enter City');
+                            return false;
+                        }
+                        if (document.getElementById("country").value == "") {
+                            document.getElementById("country").focus();
+                            wal.fire('Please Enter City');
+                            return false;
+                        }
+                        if (document.getElementById("zip").value == "") {
+                            document.getElementById("zip").focus();
+                            wal.fire('Please Enter Zip Code');
+                            return false;
+                        }
+                        if (document.getElementById("tel").value == "") {
+                            document.getElementById("tel").focus();
+                            wal.fire('Please Enter Telephone');
+                            return false;
+                        }
+                        if (document.getElementById("email").value == "") {
+                            document.getElementById("email").focus();
+                            wal.fire('Please Enter Email');
+                            return false;
+                        }
+                        if (document.getElementById("rg_food").value == "") {
+                            document.getElementById("rg_food").focus();
+                            wal.fire('Please Enter Food');
+                            return false;
+                        }
+                        if (document.getElementById("paper_num").value == "") {
+                            document.getElementById("paper_num").focus();
+                            wal.fire('Please Enter Paper Number');
+                            return false;
+                        }
+                        if (document.getElementById("paper_title").value == "") {
+                            document.getElementById("paper_title").focus();
+                            wal.fire('Please Enter Paper Title');
+                            return false;
+                        }
+                        if (document.getElementById("receipt").value == "") {
+                            document.getElementById("receipt").focus();
+                            wal.fire('Please Enter Receipt');
+                            return false;
+                        }
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        return true;
+                    }
+                </script>-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         <script>
             function checkform() {
-                if (document.getElementById("title").value == "") {
-//                    alert("Please Enter Title ");
-                    document.getElementById("title").focus();
-                    Swal.fire('Please Enter Title');
-                    return false;
-                }
-                if (document.getElementById("fname").value == "") {
-                    document.getElementById("fname").focus();
-                    Swal.fire('Please Enter First Name');
-                    return false;
-                }
-                if (document.getElementById("lname").value == "") {
-                    document.getElementById("lname").focus();
-                    Swal.fire('Please Enter Last Name');
-                    return false;
-                }
-                if (document.getElementById("company").value == "") {
-                    document.getElementById("company").focus();
-                    Swal.fire('Please Enter Affiliation');
-                    return false;
-                }
-                if (document.getElementById("address").value == "") {
-                    document.getElementById("address").focus();
-                    Swal.fire('Please Enter Address');
-                    return false;
-                }
-                if (document.getElementById("city").value == "") {
-                    document.getElementById("city").focus();
-                    Swal.fire('Please Enter City');
-                    return false;
-                }
-                if (document.getElementById("country").value == "") {
+                c = document.getElementById("country").value;
+                if (c == "--") {
                     document.getElementById("country").focus();
-                    wal.fire('Please Enter City');
                     return false;
                 }
-                if (document.getElementById("zip").value == "") {
-                    document.getElementById("zip").focus();
-                    wal.fire('Please Enter Zip Code');
-                    return false;
-                }
-                if (document.getElementById("tel").value == "") {
-                    document.getElementById("tel").focus();
-                    wal.fire('Please Enter Telephone');
-                    return false;
-                }
-                if (document.getElementById("email").value == "") {
-                    document.getElementById("email").focus();
-                    wal.fire('Please Enter Email');
-                    return false;
-                }
-                if (document.getElementById("rg_food").value == "") {
-                    document.getElementById("rg_food").focus();
-                    wal.fire('Please Enter Food');
-                    return false;
-                }
-                if (document.getElementById("paper_num").value == "") {
-                    document.getElementById("paper_num").focus();
-                    wal.fire('Please Enter Paper Number');
-                    return false;
-                }
-                if (document.getElementById("paper_title").value == "") {
-                    document.getElementById("paper_title").focus();
-                    wal.fire('Please Enter Paper Title');
-                    return false;
-                }
-                if (document.getElementById("receipt").value == "") {
-                    document.getElementById("receipt").focus();
-                    wal.fire('Please Enter Receipt');
-                    return false;
-                }
-                Swal.fire({
-                    type: 'success',
-                    title: 'Success',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                return true;
             }
 
-
-
+            function checkCountry() {
+                c = document.getElementById("country").value;
+                if (c == "Thailand") {
+                    document.getElementById("cc").innerHTML = "Baht";
+                } else {
+                    document.getElementById("cc").innerHTML = "dollar";
+                }
+            }
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     </head>
     <body>
         <div class="container">
@@ -196,7 +210,7 @@
                             <div class="row">
                                 <div class="col-sm-6 form-group">
                                     <label>Title: </label>
-                                    <select name="title" id="title" class="select">
+                                    <select name="title" id="title" class="select" required>
                                         <option value="" selected="selected">------Title------</option>
                                         <option value="Mr.">Mr. </option>
                                         <option value="Mrs.">Mrs. </option>
@@ -212,32 +226,32 @@
                                 <div class="col-sm-6 form-group">
                                     <label>First Name</label>
                                     <label><font color="#FF0000">* </font></label> 
-                                    <input id="fname" name="fname" type="text" class="form-control">
+                                    <input id="fname" name="fname" type="text" class="form-control" required>
                                 </div>
                                 <div class="col-sm-6 form-group">
                                     <label>Last Name</label>
                                     <label><font color="#FF0000">* </font></label> 
-                                    <input id="lname" name="lname" type="text" class="form-control">
+                                    <input id="lname" name="lname" type="text" class="form-control" required>
                                 </div>
                             </div>					
                             <div class="form-group">
                                 <label>Affiliation</label>
                                 <label><font color="#FF0000">* </font></label> 
-                                <input name="company" type="text" id="company" size="60" class="form-control">
+                                <input name="company" type="text" id="company" size="60" class="form-control" required>
                             </div>	
                             <div class="form-group">
                                 <label>Mailing Address</label>
                                 <label><font color="#FF0000">* </font></label> 
-                                <input name="address" type="text" id="address" size="60" maxlength="256" class="form-control">
+                                <input name="address" type="text" id="address" size="60" maxlength="256" class="form-control" required>
                             </div>	
                             <div class="row">
                                 <div class="col-sm-4 form-group">
                                     <label>City/Town</label>
-                                    <input id="city" name="city" type="text" class="form-control">
+                                    <input id="city" name="city" type="text" class="form-control" required>
                                 </div>	
                                 <div class="col-sm-4 form-group">
                                     <label>Country</label>
-                                    <select id="country" name="country" class="form-control">
+                                    <select id="country" name="country" class="form-control" onchange="checkCountry()">
                                         <option value="--" selected="selected">Please select your country</option>
                                         <option value="Afghanistan">Afghanistan</option>
                                         <option value="Åland Islands">Åland Islands</option>
@@ -485,44 +499,29 @@
                                         <option value="Zimbabwe">Zimbabwe</option>
                                     </select>
                                 </div>	
-                                <div class="col-sm-4 form-group">
+                                <div class="col-sm-4 form-group" >
                                     <label>Zip Code</label>
-                                    <input id="zip" type="text" name="zip" class="form-control">
+                                    <input id="zip" type="text" name="zip" class="form-control" required>
                                 </div>		
                             </div>
-                            <!--                            <div class="row">
-                                                            <div class="col-sm-6 form-group">
-                                                                <label>Title</label>
-                                                                <input type="text" placeholder="Enter Designation Here.." class="form-control">
-                                                            </div>		
-                                                            <div class="col-sm-6 form-group">
-                                                                <label>Company</label>
-                                                                <input type="text" placeholder="Enter Company Name Here.." class="form-control">
-                                                            </div>	
-                                                        </div>						-->
                             <div class="row">
                                 <div class="col-sm-4 form-group">
                                     <label>Telephone</label>
-                                    <input id="tel" name="tel" type="text" class="form-control">
+                                    <input id="tel" name="tel" type="text" class="form-control" required>
                                 </div>
-                                <!--                                <div class="col-sm-4 form-group">
-                                                                </div>
-                                                                <div class="col-sm-4 form-group">
-                                                                </div>-->
-
                             </div>		
                             <div class="row">
                                 <div class="col-sm-6 form-group">
                                     <label>Email</label>
                                     <label><font color="#FF0000">* </font></label> 
-                                    <input id="email" type="text" name="email" class="form-control">
+                                    <input id="email" type="text" name="email" class="form-control" required>
                                 </div>
                             </div>	
                             <div class="form-group">
                                 <label>Food</label>
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="rg_food" id="rg_food" value="Normal"> Normal
+                                        <input class="form-check-input" type="radio" name="rg_food" id="rg_food" value="Normal" checked> Normal
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
@@ -539,11 +538,11 @@
                             <div class="row">
                                 <div class="col-sm-4 form-group">
                                     <label>Paper Number</label>
-                                    <input name="paper_num" type="text" id="paper_num" size="10" class="form-control">
+                                    <input name="paper_num" type="text" id="paper_num" size="10" class="form-control" required>
                                 </div>	
                                 <div class="col-sm-8 form-group">
                                     <label>Paper Title</label>
-                                    <input name="paper_title" type="text" id="paper_title" size="60" class="form-control">
+                                    <input name="paper_title" type="text" id="paper_title" size="60" class="form-control" required>
                                 </div>	
                             </div>
                             <div class="form-group">
@@ -552,8 +551,9 @@
                                     (Name and address of Payer
                                     to appear on the official receipt)
                                     <font color="#FF0000">* </font></label> 
-                                <input name="receipt" type="text" id="receipt" size="60" maxlength="256" class="form-control">
+                                <input name="receipt" type="text" id="receipt" size="60" maxlength="256" class="form-control" required>
                             </div>
+                            <p id="cc" style="color: green; font-size: 30px"></p>
                             <input type="submit" class="btn btn-lg btn-info" value="Submit">					
                         </div>
                     </form> 

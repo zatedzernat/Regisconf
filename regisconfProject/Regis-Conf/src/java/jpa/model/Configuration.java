@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author BEW ACER
+ * @author GT62VR
  */
 @Entity
 @Table(name = "configuration")

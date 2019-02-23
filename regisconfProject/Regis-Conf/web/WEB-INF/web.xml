@@ -4,9 +4,17 @@
         <servlet-name>regisServlet</servlet-name>
         <servlet-class>servlet.regisServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addNumberServlet</servlet-name>
+        <servlet-class>servlet.addNumberServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>regisServlet</servlet-name>
         <url-pattern>/regis</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addNumberServlet</servlet-name>
+        <url-pattern>/addNumber</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

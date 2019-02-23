@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author BEW ACER
+ * @author GT62VR
  */
 @Entity
 @Table(name = "registration")
@@ -87,6 +87,42 @@ public class Registration implements Serializable {
     public Registration(Integer regId) {
         this.regId = regId;
     }
+
+    public Registration(String title, String fname, String lname, String company, String address, String city, String country, String zip, String tel, String email, String paperNum, String paperTitle, String reciptPayTo, String rgFood) {
+        this.title = title;
+        this.fname = fname;
+        this.lname = lname;
+        this.company = company;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.zip = zip;
+        this.tel = tel;
+        this.email = email;
+        this.paperNum = paperNum;
+        this.paperTitle = paperTitle;
+        this.reciptPayTo = reciptPayTo;
+        this.rgFood = rgFood;
+    }
+
+    public Registration(Integer regId, String title, String fname, String lname, String company, String address, String city, String country, String zip, String tel, String email, String paperNum, String paperTitle, String reciptPayTo, String rgFood) {
+        this.regId = regId;
+        this.title = title;
+        this.fname = fname;
+        this.lname = lname;
+        this.company = company;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.zip = zip;
+        this.tel = tel;
+        this.email = email;
+        this.paperNum = paperNum;
+        this.paperTitle = paperTitle;
+        this.reciptPayTo = reciptPayTo;
+        this.rgFood = rgFood;
+    }
+
 
     public Integer getRegId() {
         return regId;
