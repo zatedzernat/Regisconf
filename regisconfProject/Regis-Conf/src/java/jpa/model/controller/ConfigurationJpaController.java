@@ -25,7 +25,12 @@ public class ConfigurationJpaController implements Serializable {
     public ConfigurationJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+
+    public ConfigurationJpaController() {
+    }
+//    private EntityManagerFactory emf = null;
+    //source code http://wiki.netbeans.org/SimpleJPAApplicationWithNetbeans
+    private EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("Regis-ConfPU");
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

@@ -70,10 +70,7 @@ public class regisServlet extends HttpServlet {
         
         //check total regis
 //        if (true) {
-        Configuration config = new Configuration();
-        ConfigurationJpaController configctrl = new ConfigurationJpaController(emf);
-
-        RegistrationJpaController regisctrl = new RegistrationJpaController(emf);
+        RegistrationJpaController regisctrl = new RegistrationJpaController();
 //        int id = regisctrl.getRegistrationCount();
         Registration regis = new Registration(0,title, fname, lname, company, address, city, country, zip, telno, email, paper_num, paper_title, receipt, food);
         if (title != null && title.trim().length() > 0 && fname != null && fname.trim().length() > 0 && lname != null && lname.trim().length() > 0

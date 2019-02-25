@@ -40,19 +40,21 @@ public class addNumberServlet extends HttpServlet {
         String numberStr = request.getParameter("number");
         if (numberStr != null) {
             int num = Integer.parseInt(numberStr);
-            System.out.println(num);
-            
+
             Date d = new Date();
             Configuration config = new Configuration();
             config.setId(1);
             config.setNumber(num);
             config.setTimestamp(d);
             
-            System.out.println("33333");
-            ConfigurationJpaController configctrl = new ConfigurationJpaController(emf);
+            ConfigurationJpaController configctrl = new ConfigurationJpaController();
             configctrl.create(config);
-            System.out.println("4444444");
-            getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+            request.setAttribute("config", config);
+            //reset auto incerment and table
+            //delete from configuration;
+            //ALTER TABLE configuration AUTO_INCREMENT =1;
+            //source https://www.thaicreate.com/php/forum/028393.html
+            getServletContext().getRequestDispatcher("/test.jsp").forward(request, response);
         }
         getServletContext().getRequestDispatcher("/addNumber.jsp").forward(request, response);
     }

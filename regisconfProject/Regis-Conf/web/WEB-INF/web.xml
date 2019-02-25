@@ -23,6 +23,5 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>regis.jsp</welcome-file>
-        <welcome-file>registration.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
