@@ -15,7 +15,7 @@
         <jsp:include page="header/header.jsp"/>
         <h2 style="text-align: center; padding-top: 50px">Register Complete!!!</h2>
         <div style="text-align: center;">
-            <a href="regis.jsp">Back to Register Page</a>
+            <a href="checkConfig">Back to Register Page</a>
         </div>
     </body>
 </html>
