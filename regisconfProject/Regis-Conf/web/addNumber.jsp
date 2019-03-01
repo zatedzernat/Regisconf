@@ -19,8 +19,9 @@
                 config total register: <input type="number" name="number" >
                 <input type="submit" value="submit" >
             </form>
-            <c:if test="${cfg!=null}">
-                Total number = ${cfg.number}
+            <c:if test="${cfg!=null && reg!=null}">
+                Config = ${cfg.number} <br>
+                Total register = ${reg}
             </c:if>
         </div>
     </body>

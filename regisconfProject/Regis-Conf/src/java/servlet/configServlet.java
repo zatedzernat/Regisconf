@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import jpa.model.Configuration;
 import jpa.model.controller.ConfigurationJpaController;
+import jpa.model.controller.RegistrationJpaController;
 
 /**
  *
@@ -33,6 +34,9 @@ public class configServlet extends HttpServlet {
             throws ServletException, IOException {
         ConfigurationJpaController cfgctrl = new ConfigurationJpaController();
         Configuration cfg = cfgctrl.findConfiguration(1);
+        
+        RegistrationJpaController regisctrl = new RegistrationJpaController();
+        request.setAttribute("reg", regisctrl.getRegistrationCount());
         request.setAttribute("cfg", cfg);
         getServletContext().getRequestDispatcher("/addNumber.jsp").forward(request, response);
     }

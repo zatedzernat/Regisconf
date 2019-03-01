@@ -54,21 +54,26 @@ public class regisServlet extends HttpServlet {
         String paper_title = request.getParameter("paper_title");
         String receipt = request.getParameter("receipt");
 
-        //check total regis
-//        if (true) {
+        ConfigurationJpaController cfgctrl = new ConfigurationJpaController();
         RegistrationJpaController regisctrl = new RegistrationJpaController();
+        int regisnow = regisctrl.getRegistrationCount();
+        int numcount = cfgctrl.findConfiguration(1).getNumber();
+        //check total regis
+        if (regisnow < numcount) {
 //        int id = regisctrl.getRegistrationCount();
-        Registration regis = new Registration(0, title, fname, lname, company, address, city, country, zip, telno, email, paper_num, paper_title, receipt, food);
-        if (title != null && title.trim().length() > 0 && fname != null && fname.trim().length() > 0 && lname != null && lname.trim().length() > 0
-                && company != null && company.trim().length() > 0 && address != null && address.trim().length() > 0 && city != null && city.trim().length() > 0
-                && country != null && country.trim().length() > 0 && zip != null && zip.trim().length() > 0 && telno != null && telno.trim().length() > 0
-                && email != null && email.trim().length() > 0 && food != null && food.trim().length() > 0 && paper_num != null && paper_num.trim().length() > 0
-                && paper_title != null && paper_title.trim().length() > 0 && receipt != null && receipt.trim().length() > 0) {
-            regisctrl.create(regis);
+            Registration regis = new Registration(0, title, fname, lname, company, address, city, country, zip, telno, email, paper_num, paper_title, receipt, food);
+            if (title != null && title.trim().length() > 0 && fname != null && fname.trim().length() > 0 && lname != null && lname.trim().length() > 0
+                    && company != null && company.trim().length() > 0 && address != null && address.trim().length() > 0 && city != null && city.trim().length() > 0
+                    && country != null && country.trim().length() > 0 && zip != null && zip.trim().length() > 0 && telno != null && telno.trim().length() > 0
+                    && email != null && email.trim().length() > 0 && food != null && food.trim().length() > 0 && paper_num != null && paper_num.trim().length() > 0
+                    && paper_title != null && paper_title.trim().length() > 0 && receipt != null && receipt.trim().length() > 0) {
+                regisctrl.create(regis);
 
-            getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+                getServletContext().getRequestDispatcher("/complete.jsp").forward(request, response);
+                return;
+            }
         }
-//        }
+        request.setAttribute("fullregis", "Full Register!!!");
         getServletContext().getRequestDispatcher("/regis.jsp").forward(request, response);
 
     }
