@@ -21,7 +21,7 @@
             body {
                 padding-top: 20px;
                 padding-bottom: 20px;
-                background-color: #58ACFA;
+                background-color: #bfbfbf;
             }
 
             /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -200,6 +200,7 @@
         </script>
     </head>
     <body>
+        
         <div class="container">
             <h2 class="well">Con-f Registration Form</h2>
             <div class="col-lg-12 well">
@@ -554,7 +555,8 @@
                                 <input name="receipt" type="text" id="receipt" size="60" maxlength="256" class="form-control" required>
                             </div>
                             <p id="cc" style="color: green; font-size: 30px"></p>
-                            <input type="submit" class="btn btn-lg btn-info" value="Submit">					
+                            <input type="submit" class="btn btn-lg btn-info" value="Submit">
+                            <p style="text-align: right"><a href="index.jsp">Regis-Conf</a></p>
                         </div>
                     </form> 
                 </div>

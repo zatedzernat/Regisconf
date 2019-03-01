@@ -126,6 +126,27 @@ public class RegistrationJpaController implements Serializable {
             em.close();
         }
     }
+    public List<Registration> findByFname(String name) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Registration.findByFname");
+            query.setParameter("fname", "%"+name+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<Registration> findByLname(String name) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Registration.findByLname");
+            query.setParameter("lname", "%"+name+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 
     public int getRegistrationCount() {
         EntityManager em = getEntityManager();

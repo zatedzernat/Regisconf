@@ -8,6 +8,22 @@
         <servlet-name>addNumberServlet</servlet-name>
         <servlet-class>servlet.addNumberServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>checkConfigServlet</servlet-name>
+        <servlet-class>servlet.checkConfigServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>configServlet</servlet-name>
+        <servlet-class>servlet.configServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>checkSearchServlet</servlet-name>
+        <servlet-class>servlet.checkSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>search</servlet-name>
+        <servlet-class>servlet.searchServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>regisServlet</servlet-name>
         <url-pattern>/regis</url-pattern>
@@ -16,12 +32,28 @@
         <servlet-name>addNumberServlet</servlet-name>
         <url-pattern>/addNumber</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkConfigServlet</servlet-name>
+        <url-pattern>/checkConfig</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>configServlet</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkSearchServlet</servlet-name>
+        <url-pattern>/checkSearch</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>search</servlet-name>
+        <url-pattern>/searchServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>regis.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

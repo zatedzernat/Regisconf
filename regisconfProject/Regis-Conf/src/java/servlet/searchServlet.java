@@ -7,27 +7,20 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.annotation.Resource;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import jpa.model.Configuration;
-import jpa.model.controller.ConfigurationJpaController;
+import jpa.model.Registration;
+import jpa.model.controller.RegistrationJpaController;
 
 /**
  *
- * @author GT62VR
+ * @author BEW ACER
  */
-public class addNumberServlet extends HttpServlet {
-    @PersistenceUnit(unitName = "Regis-ConfPU")
-    EntityManagerFactory emf;
-    
+public class searchServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -38,28 +31,19 @@ public class addNumberServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
-        String numberStr = request.getParameter("number");
-        if (numberStr != null && numberStr.trim().length()>0) {
-            int num = Integer.parseInt(numberStr);
-
-            Date d = new Date();
-            Configuration config = new Configuration();
-            config.setId(1);
-            config.setNumber(num);
-            config.setTimestamp(d);
-            
-            ConfigurationJpaController configctrl = new ConfigurationJpaController();
-            configctrl.edit(config);
-            request.setAttribute("config", config);
-            //reset auto incerment and table
-            //delete from configuration;
-            //ALTER TABLE configuration AUTO_INCREMENT =1;
-            //source https://www.thaicreate.com/php/forum/028393.html
-//            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-            response.sendRedirect("index.jsp");
+            throws ServletException, IOException {
+        String name = request.getParameter("name");
+        if (name != null && name.trim().length() > 0) {
+            RegistrationJpaController regctrl = new RegistrationJpaController();
+            List<Registration> regs = null;
+            regs = regctrl.findByFname(name);
+            if (regs.size()==0) {
+                regs = regctrl.findByLname(name);
+            }
+            request.setAttribute("regsize", regs.size());
+            request.setAttribute("regs", regs);
         }
-        getServletContext().getRequestDispatcher("/addNumber.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -74,11 +58,7 @@ public class addNumberServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(addNumberServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -92,11 +72,7 @@ public class addNumberServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(addNumberServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

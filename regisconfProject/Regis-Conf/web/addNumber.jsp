@@ -4,6 +4,7 @@
     Author     : GT62VR
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,9 +13,15 @@
         <title>Configuration</title>
     </head>
     <body>
-        <form method="post" action="addNumber">
-            จำนวนคนที่สมัครได้: <input type="number" name="number" >
-            <input type="submit" value="submit" >
-        </form>
+        <jsp:include page="header/header.jsp"/>
+        <div style="text-align: center; padding-top: 50px">
+            <form method="post" action="addNumber">
+                config total register: <input type="number" name="number" >
+                <input type="submit" value="submit" >
+            </form>
+            <c:if test="${cfg!=null}">
+                Total number = ${cfg.number}
+            </c:if>
+        </div>
     </body>
 </html>

@@ -28,8 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Registration.findAll", query = "SELECT r FROM Registration r")
     , @NamedQuery(name = "Registration.findByRegId", query = "SELECT r FROM Registration r WHERE r.regId = :regId")
     , @NamedQuery(name = "Registration.findByTitle", query = "SELECT r FROM Registration r WHERE r.title = :title")
-    , @NamedQuery(name = "Registration.findByFname", query = "SELECT r FROM Registration r WHERE r.fname = :fname")
-    , @NamedQuery(name = "Registration.findByLname", query = "SELECT r FROM Registration r WHERE r.lname = :lname")
+    , @NamedQuery(name = "Registration.findByFname", query = "SELECT r FROM Registration r WHERE r.fname like :fname")
+    , @NamedQuery(name = "Registration.findByLname", query = "SELECT r FROM Registration r WHERE r.lname like :lname")
     , @NamedQuery(name = "Registration.findByCompany", query = "SELECT r FROM Registration r WHERE r.company = :company")
     , @NamedQuery(name = "Registration.findByAddress", query = "SELECT r FROM Registration r WHERE r.address = :address")
     , @NamedQuery(name = "Registration.findByCity", query = "SELECT r FROM Registration r WHERE r.city = :city")
@@ -41,7 +41,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Registration.findByPaperTitle", query = "SELECT r FROM Registration r WHERE r.paperTitle = :paperTitle")
     , @NamedQuery(name = "Registration.findByReciptPayTo", query = "SELECT r FROM Registration r WHERE r.reciptPayTo = :reciptPayTo")
     , @NamedQuery(name = "Registration.findByCurrency", query = "SELECT r FROM Registration r WHERE r.currency = :currency")
-    , @NamedQuery(name = "Registration.findByRgFood", query = "SELECT r FROM Registration r WHERE r.rgFood = :rgFood")})
+    , @NamedQuery(name = "Registration.findByRgFood", query = "SELECT r FROM Registration r WHERE r.rgFood = :rgFood")
+})
 public class Registration implements Serializable {
 
     private static final long serialVersionUID = 1L;

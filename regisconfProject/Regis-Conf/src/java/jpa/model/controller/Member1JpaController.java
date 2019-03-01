@@ -25,10 +25,14 @@ public class Member1JpaController implements Serializable {
     public Member1JpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+//    private EntityManagerFactory emf = null;
+    private EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("Regis-ConfPU");
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+
+    public Member1JpaController() {
     }
 
     public void create(Member1 member1) {
