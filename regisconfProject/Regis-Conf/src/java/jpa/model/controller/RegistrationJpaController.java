@@ -18,14 +18,14 @@ import jpa.model.controller.exceptions.NonexistentEntityException;
 
 /**
  *
- * @author GT62VR
+ * @author BEW ACER
  */
 public class RegistrationJpaController implements Serializable {
 
     public RegistrationJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-//    private EntityManagerFactory emf = null;
+    //    private EntityManagerFactory emf = null;
     //source code http://wiki.netbeans.org/SimpleJPAApplicationWithNetbeans
     private EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("Regis-ConfPU");
 
@@ -126,22 +126,23 @@ public class RegistrationJpaController implements Serializable {
             em.close();
         }
     }
+
     public List<Registration> findByFname(String name) {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createNamedQuery("Registration.findByFname");
-            query.setParameter("fname", "%"+name+"%");
+            query.setParameter("fname", "%" + name + "%");
             return query.getResultList();
         } finally {
             em.close();
         }
     }
-    
+
     public List<Registration> findByLname(String name) {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createNamedQuery("Registration.findByLname");
-            query.setParameter("lname", "%"+name+"%");
+            query.setParameter("lname", "%" + name + "%");
             return query.getResultList();
         } finally {
             em.close();
@@ -160,5 +161,5 @@ public class RegistrationJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

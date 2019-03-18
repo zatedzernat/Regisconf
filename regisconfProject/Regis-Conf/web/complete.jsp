@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body style="background-color: #DFFADF">
         <jsp:include page="header/header.jsp"/>
         <h2 style="text-align: center; padding-top: 50px">Register Complete!!!</h2>
         <div style="text-align: center;">

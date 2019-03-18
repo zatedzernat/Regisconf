@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Configuration</title>
     </head>
-    <body>
+    <body style="background-color: #DFFADF">
         <jsp:include page="header/header.jsp"/>
         <div style="text-align: center; padding-top: 50px">
             <form method="post" action="addNumber">

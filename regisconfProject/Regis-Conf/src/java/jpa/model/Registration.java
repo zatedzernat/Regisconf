@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author GT62VR
+ * @author BEW ACER
  */
 @Entity
 @Table(name = "registration")
@@ -41,8 +41,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Registration.findByPaperTitle", query = "SELECT r FROM Registration r WHERE r.paperTitle = :paperTitle")
     , @NamedQuery(name = "Registration.findByReciptPayTo", query = "SELECT r FROM Registration r WHERE r.reciptPayTo = :reciptPayTo")
     , @NamedQuery(name = "Registration.findByCurrency", query = "SELECT r FROM Registration r WHERE r.currency = :currency")
-    , @NamedQuery(name = "Registration.findByRgFood", query = "SELECT r FROM Registration r WHERE r.rgFood = :rgFood")
-})
+    , @NamedQuery(name = "Registration.findByRgFood", query = "SELECT r FROM Registration r WHERE r.rgFood = :rgFood")})
 public class Registration implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -105,25 +104,6 @@ public class Registration implements Serializable {
         this.reciptPayTo = reciptPayTo;
         this.rgFood = rgFood;
     }
-
-    public Registration(Integer regId, String title, String fname, String lname, String company, String address, String city, String country, String zip, String tel, String email, String paperNum, String paperTitle, String reciptPayTo, String rgFood) {
-        this.regId = regId;
-        this.title = title;
-        this.fname = fname;
-        this.lname = lname;
-        this.company = company;
-        this.address = address;
-        this.city = city;
-        this.country = country;
-        this.zip = zip;
-        this.tel = tel;
-        this.email = email;
-        this.paperNum = paperNum;
-        this.paperTitle = paperTitle;
-        this.reciptPayTo = reciptPayTo;
-        this.rgFood = rgFood;
-    }
-
 
     public Integer getRegId() {
         return regId;
@@ -277,5 +257,5 @@ public class Registration implements Serializable {
     public String toString() {
         return "jpa.model.Registration[ regId=" + regId + " ]";
     }
-    
+
 }

@@ -18,14 +18,15 @@ import jpa.model.controller.exceptions.NonexistentEntityException;
 
 /**
  *
- * @author GT62VR
+ * @author BEW ACER
  */
 public class Member1JpaController implements Serializable {
 
     public Member1JpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-//    private EntityManagerFactory emf = null;
+    //    private EntityManagerFactory emf = null;
+    //source code http://wiki.netbeans.org/SimpleJPAApplicationWithNetbeans
     private EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("Regis-ConfPU");
 
     public EntityManager getEntityManager() {
@@ -138,5 +139,5 @@ public class Member1JpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

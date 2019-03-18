@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author GT62VR
+ * @author BEW ACER
  */
 @Entity
 @Table(name = "member")
@@ -30,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Member1.findByUsername", query = "SELECT m FROM Member1 m WHERE m.username = :username")
     , @NamedQuery(name = "Member1.findByPassword", query = "SELECT m FROM Member1 m WHERE m.password = :password")
     , @NamedQuery(name = "Member1.findByEmail", query = "SELECT m FROM Member1 m WHERE m.email = :email")
-    , @NamedQuery(name = "Member1.findByName", query = "SELECT m FROM Member1 m WHERE m.name = :name")})
+    , @NamedQuery(name = "Member1.findByName", query = "SELECT m FROM Member1 m WHERE m.name = :name")
+    , @NamedQuery(name = "Member1.findByStatus", query = "SELECT m FROM Member1 m WHERE m.status = :status")})
 public class Member1 implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,6 +52,9 @@ public class Member1 implements Serializable {
     @Basic(optional = false)
     @Column(name = "Name")
     private String name;
+    @Basic(optional = false)
+    @Column(name = "status")
+    private String status;
 
     public Member1() {
     }
@@ -59,12 +63,13 @@ public class Member1 implements Serializable {
         this.userID = userID;
     }
 
-    public Member1(Integer userID, String username, String password, String email, String name) {
+    public Member1(Integer userID, String username, String password, String email, String name, String status) {
         this.userID = userID;
         this.username = username;
         this.password = password;
         this.email = email;
         this.name = name;
+        this.status = status;
     }
 
     public Integer getUserID() {
@@ -105,6 +110,14 @@ public class Member1 implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

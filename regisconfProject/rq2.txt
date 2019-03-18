@@ -1,0 +1,9 @@
+หน้าแสดงข้อมูล 
+-ให้แสดงข้อมูลเลย (ข้างล่างช่องค้นหา) แสดงเป็น ชื่อ นามสกุล และมีปุ่มคลิกเข้าไปดูข้อมูลอีกที (search ได้เลย)
+-แสดงเป็นหน้าๆ 
+log in 
+-ทำ register page สำหรับ admin 
+-ให้เช็ค status admin ->  config, search (encrypt ข้อมูลเอา md5)
+register
+-เช็คตอนกด submit ว่า คนสมัครเต็มหรือยัง (หากมีการกด back )
+-validation zipcode telephone email(pattern)
