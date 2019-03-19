@@ -7,7 +7,6 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,9 +16,9 @@ import jpa.model.controller.RegistrationJpaController;
 
 /**
  *
- * @author BEW ACER
+ * @author BILL-ROG
  */
-public class checkSearchServlet extends HttpServlet {
+public class searchIDServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,9 +31,11 @@ public class checkSearchServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String idstr = request.getParameter("regid");
+        int id = Integer.parseInt(idstr);
         RegistrationJpaController regctrl = new RegistrationJpaController();
-        List<Registration> reg_list = regctrl.findRegistrationEntities();
-        request.setAttribute("reg_list", reg_list);
+        Registration reg = regctrl.findRegistration(id);
+        request.setAttribute("onereg", reg);
         getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
     }
 

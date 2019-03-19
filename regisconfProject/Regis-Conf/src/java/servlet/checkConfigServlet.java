@@ -37,10 +37,11 @@ public class checkConfigServlet extends HttpServlet {
 
         RegistrationJpaController regctrl = new RegistrationJpaController();
         int regcount = regctrl.getRegistrationCount();
+        System.out.println("regis count = "+regcount);
+        System.out.println("config count = "+cfg.getNumber());
         if (regcount < cfg.getNumber()) {
             getServletContext().getRequestDispatcher("/regis.jsp").forward(request, response);
             return;
-//            response.sendRedirect("regis.jsp");
         }
         request.setAttribute("fullregis", "Full Register!!!");
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);

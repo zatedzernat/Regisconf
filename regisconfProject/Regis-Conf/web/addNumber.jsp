@@ -16,12 +16,13 @@
         <jsp:include page="header/header.jsp"/>
         <div style="text-align: center; padding-top: 50px">
             <form method="post" action="addNumber">
-                config total register: <input type="number" name="number" >
+                Config Total Register: <input type="number" name="number" >
                 <input type="submit" value="submit" >
             </form>
+            <br>
             <c:if test="${cfg!=null && reg!=null}">
-                Config = ${cfg.number} <br>
-                Total register = ${reg}
+                Config now = ${cfg.number} <br>
+                Total register now = ${reg}
             </c:if>
         </div>
     </body>

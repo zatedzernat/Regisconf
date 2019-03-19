@@ -57,9 +57,9 @@ public class regisServlet extends HttpServlet {
         ConfigurationJpaController cfgctrl = new ConfigurationJpaController();
         RegistrationJpaController regisctrl = new RegistrationJpaController();
         int regisnow = regisctrl.getRegistrationCount();
-        System.out.println(regisnow);
         int numcount = cfgctrl.findConfiguration(1).getNumber();
-        System.out.println(numcount);
+        System.out.println("config now = "+numcount);
+        System.out.println("regis now = "+regisnow);
         //check total regis
         if (regisnow < numcount) {
 //        int id = regisctrl.getRegistrationCount();

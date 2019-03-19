@@ -37,7 +37,7 @@ public class searchServlet extends HttpServlet {
             RegistrationJpaController regctrl = new RegistrationJpaController();
             List<Registration> regs = null;
             regs = regctrl.findByFname(name);
-            if (regs.size()==0) {
+            if (regs.isEmpty()) {
                 regs = regctrl.findByLname(name);
             }
             request.setAttribute("regsize", regs.size());

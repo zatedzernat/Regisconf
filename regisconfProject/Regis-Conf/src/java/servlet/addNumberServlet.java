@@ -52,12 +52,12 @@ public class addNumberServlet extends HttpServlet {
             ConfigurationJpaController configctrl = new ConfigurationJpaController();
             configctrl.edit(config);
             request.setAttribute("config", config);
-            //reset auto incerment and table
+            //reset auto incerment and delete data in table
             //delete from configuration;
             //ALTER TABLE configuration AUTO_INCREMENT =1;
             //source https://www.thaicreate.com/php/forum/028393.html
-//            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-            response.sendRedirect("index.jsp");
+            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
         }
         getServletContext().getRequestDispatcher("/addNumber.jsp").forward(request, response);
     }

@@ -24,6 +24,10 @@
         <servlet-name>search</servlet-name>
         <servlet-class>servlet.searchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>searchIDServlet</servlet-name>
+        <servlet-class>servlet.searchIDServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>regisServlet</servlet-name>
         <url-pattern>/regis</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>search</servlet-name>
         <url-pattern>/searchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchIDServlet</servlet-name>
+        <url-pattern>/searchID</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
