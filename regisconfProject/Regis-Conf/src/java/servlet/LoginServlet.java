@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.persistence.NoResultException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,18 +38,23 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Member1JpaController memberctrl = new Member1JpaController();
-        Member1 memberfromdb = memberctrl.fingByUsername(username);
-        String passwordfromdb = memberfromdb.getPassword();
-        password = cryptWithMD5(password).substring(0, 20);
-        if (password.equals(passwordfromdb)) {
-//            if (memberfromdb.getStatus().equalsIgnoreCase("admin")) {
-            HttpSession session = request.getSession(true);
-            session.setAttribute("user", memberfromdb);
-//            }
-        }else {
-            request.setAttribute("wrongpass", "Incorrect password");
+        try {
+            Member1 memberfromdb = memberctrl.fingByUsername(username);
+            String passwordfromdb = memberfromdb.getPassword();
+            password = cryptWithMD5(password).substring(0, 20);
+            if (password.equals(passwordfromdb)) {
+                //            if (memberfromdb.getStatus().equalsIgnoreCase("admin")) {
+                HttpSession session = request.getSession(true);
+                session.setAttribute("user", memberfromdb);
+                //            }
+            } else {
+                request.setAttribute("wrongpass", "Incorrect ID or Password");
+            }
+            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+        } catch (NoResultException ex) {
+            request.setAttribute("wrongpass", "Incorrect ID or Password");
+            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         }
-        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     private static String cryptWithMD5(String pass) {
