@@ -76,7 +76,7 @@ public class regisServlet extends HttpServlet {
             }
         }
         request.setAttribute("fullregis", "Full Register!!!");
-        getServletContext().getRequestDispatcher("/regis.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
     }
 
