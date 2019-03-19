@@ -72,6 +72,14 @@ public class Member1 implements Serializable {
         this.status = status;
     }
 
+    public Member1(String username, String password, String email, String name, String status) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.status = status;
+    }
+
     public Integer getUserID() {
         return userID;
     }

@@ -515,7 +515,7 @@
                                 <div class="col-sm-6 form-group">
                                     <label>Email</label>
                                     <label><font color="#FF0000">* </font></label> 
-                                    <input id="email" type="text" name="email" class="form-control" required>
+                                    <input id="email" type="email" name="email" class="form-control" required>
                                 </div>
                             </div>	
                             <div class="form-group">

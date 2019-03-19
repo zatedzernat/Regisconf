@@ -4,6 +4,7 @@
     Author     : BEW ACER
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
@@ -30,12 +31,24 @@
             <li class="nav-item active">
                 <a class="nav-link" href="checkConfig">Registration <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Log in</a>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <c:choose>
+                        <c:when test="${user == null}">
+                            <a class="dropdown-item" href="login.jsp">Log-in</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="dropdown-item" href="Logout">Log-out</a>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:if test="${user == null}">
+                        <a class="dropdown-item" href="register.jsp">Register</a>
+                    </c:if>
+                </div>
             </li>
-            <!--            <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Config
@@ -43,9 +56,13 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="config">Config Number</a>
                     <a class="dropdown-item" href="checkSearch">Search</a>
-                    <!--<a class="dropdown-item" href="#">Something else here</a>-->
                 </div>
             </li>
+            <c:if test="${user != null}">
+                <li class="nav-item active" style="margin-left: 10px;">
+                    <a class="nav-link"> User: <b><span style="color: blue;">${user.username}</span></b></a>
+                </li>
+            </c:if>
         </ul>
     </div>
 </nav>

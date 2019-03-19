@@ -126,6 +126,17 @@ public class Member1JpaController implements Serializable {
             em.close();
         }
     }
+    
+    public Member1 fingByUsername(String username) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Member1.findByUsername");
+            query.setParameter("username", username);
+            return (Member1) query.getSingleResult();
+        } finally {
+            em.close();
+        }
+    }
 
     public int getMember1Count() {
         EntityManager em = getEntityManager();

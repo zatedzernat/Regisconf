@@ -11,6 +11,9 @@
         <jsp:include page="header/header.jsp"/>
         <div style="padding-top: 50px;">
             <h2 style="text-align: center;"><span style="color: red">${fullregis}</span></h2>
+            <h2 style="text-align: center;"><span style="color: red">${wrongpass}</span></h2>
+            <h2 style="text-align: center;"><span style="color: red">${insuffper}</span></h2>
+            <h2 style="text-align: center;"><span style="color: red">${logout}</span></h2>
         </div>
     </body>
 </html>
