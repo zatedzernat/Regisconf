@@ -502,13 +502,13 @@
                                 </div>	
                                 <div class="col-sm-4 form-group" >
                                     <label>Zip Code</label>
-                                    <input id="zip" type="text" name="zip" class="form-control" required>
+                                    <input id="zip" type="text" name="zip" class="form-control" title="WRONG_PATTERN" pattern="[0-9]*" required>
                                 </div>		
                             </div>
                             <div class="row">
                                 <div class="col-sm-4 form-group">
                                     <label>Telephone</label>
-                                    <input id="tel" name="tel" type="text" class="form-control" required>
+                                    <input id="tel" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format: 123-456-7890" type="tel" class="form-control" required>
                                 </div>
                             </div>		
                             <div class="row">

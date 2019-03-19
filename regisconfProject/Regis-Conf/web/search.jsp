@@ -115,7 +115,7 @@
                     <h2 style="text-align: center">Not Found!!!</h2>
                 </c:when>
                 <c:when test="${onereg != null}">
-                    <table align="center" id="example" class="table table-bordered table-dark table-hover" style="width:80%;">
+                    <table align="center" id="example" class="table table-bordered table-dark table-hover" style="width:90%;">
                         <thead>
                             <tr>
                                 <th>ID</th>
